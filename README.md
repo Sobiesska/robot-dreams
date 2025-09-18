@@ -1,2 +1,14 @@
 # robot-dreams
-QA automation typescript
+
+Description
+UI automation framework for robot_dreams test project
+
+Prerequisites
+In order to start automation you need to install chromium: npx playwright install chromium
+
+Prettier Setup for VSCode
+Open Settings and find Prettier: Config Path
+Insert value <>/prettier.configuration.js
+Save Changes
+ENV VARIABLES
+check - .env-example file
