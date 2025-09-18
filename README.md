@@ -18,3 +18,9 @@ All files should be kebab case like some-cool-file.ts
 All classes should be in camel case and start with capital letter
 Tags
 Smoke tests for basic functionality
+
+Rule
+Please always wrap all page object and page components methods into @step decorator
+
+Before Commit
+Please make sure to run npm run commit-check
