@@ -12,3 +12,9 @@ Insert value <>/prettier.configuration.js
 Save Changes
 ENV VARIABLES
 check - .env-example file
+
+Naming convention
+All files should be kebab case like some-cool-file.ts
+All classes should be in camel case and start with capital letter
+Tags
+Smoke tests for basic functionality
