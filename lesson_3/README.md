@@ -1,7 +1,8 @@
 # robot-dreams
 
 Description
-UI automation framework for robot_dreams test project.
+Variables and data types. Conditional constructs.
+UI automation framework for robot_dreams test project
 
 Prerequisites
 In order to start automation you need to install chromium: npx playwright install chromium
