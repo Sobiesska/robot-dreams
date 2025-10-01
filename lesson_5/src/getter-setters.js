@@ -34,20 +34,24 @@ const obj = {
         return this._name;
     },
 
-    get surname() {
-        return this._surname;
+    set name(value) {
+        this._name = value;
     },
 
-    get skills() {
-        return this._skills;
+    get surname() {
+        return this._surname;
     },
 
     set surname(value) {
         this._surname = value;
     },
 
-    set name(value) {
-        this._name = value;
+    get skills() {
+        return this._skills;
+    },
+
+    set skills(value) {
+        this._skills = value;
     }
 };
 
