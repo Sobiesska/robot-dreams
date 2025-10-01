@@ -11,7 +11,7 @@ const obj = {
         _favorite_books: [
             {
                 author_name: 'Colleen Hoover',
-                book_name: 'It Ends with Us',
+                book_name: 'It Ends with Us!',
                 book_genre: 'Romance'
             },
             {
