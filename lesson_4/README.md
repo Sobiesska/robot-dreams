@@ -1,6 +1,7 @@
 # robot-dreams
 
 Description
+Loops. Arrays. Objects.
 UI automation framework for robot_dreams test project.
 
 Prerequisites
