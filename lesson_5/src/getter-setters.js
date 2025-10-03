@@ -7,26 +7,26 @@ const obj = {
     _skills: {
         _cooking: true,
         _reading: true,
-        _number_of_pets: 1,
-        _favorite_books: [
+        _numberOfPets: 1,
+        _favoriteBooks: [
             {
-                author_name: 'Colleen Hoover',
-                book_name: 'It Ends with Us',
-                book_genre: 'Romance'
+                _authorName: 'Colleen Hoover',
+                _bookName: 'It Ends with Us',
+                _bookGenre: 'Romance'
             },
             {
-                author_name: 'Ilarion Pavliuk',
-                book_name: 'I see that you are interested in darkness',
-                book_genre: 'Horror'
+                _authorName: 'Ilarion Pavliuk',
+                _bookName: 'I see that you are interested in darkness',
+                _bookGenre: 'Horror'
             }
         ],
 
         get favoriteBooks() {
-            return this._favorite_books;
+            return this._favoriteBooks;
         },
 
         set favoriteBooks(value) {
-            this._favorite_books = value;
+            this._favoriteBooks = value;
         }
     },
 
@@ -62,8 +62,8 @@ console.log(obj.surname);
 
 console.log(obj.skills.favoriteBooks);
 obj.skills.favoriteBooks = [...obj.skills.favoriteBooks, {
-    author_name: 'Colleen Hoover',
-    book_name: 'November 9',
-    book_genre: 'Romance'
+    _authorName: 'Colleen Hoover',
+    _bookName: 'November 9',
+    _bookGenre: 'Romance'
 }];
 console.log(obj.skills.favoriteBooks);
