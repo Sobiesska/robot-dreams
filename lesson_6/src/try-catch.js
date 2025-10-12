@@ -1,11 +1,14 @@
-function sendGitHubRequest(nonExistingResource, existingResource) {
+function sendGitHubRequest(resource) {
     let response;
     try {
-        response = sendRequest(nonExistingResource);
+        response = fetch(resource);
+        if (!response.ok) {
+            throw new Error(`No resource response for ${resource}. Please try again or contact support.`);
+        }
     } catch (error) {
         console.log(error.message);
-        if (error.message.includes(`No resource response for ${nonExistingResource}. Please try again or contact support.`)) {
-            response = sendNewRequest(existingResource);
+        if (error.message.includes('No resource response')) {
+            response = sendRequest(resource);
         } else {
             throw error;
         }
@@ -15,10 +18,6 @@ function sendGitHubRequest(nonExistingResource, existingResource) {
 }
 
 function sendRequest(resource) {
-    throw new Error(`No resource response for ${resource}. Please try again or contact support.`);
-}
-
-function sendNewRequest(resource) {
     return {
         url: resource,
         result: 'success',
@@ -26,5 +25,5 @@ function sendNewRequest(resource) {
     };
 }
 
-sendGitHubRequest('https://api.githubbb.com/', 'https://api.github.com/');
+sendGitHubRequest('https://api.github.com/');
 

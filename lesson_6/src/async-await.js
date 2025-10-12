@@ -5,13 +5,9 @@ async function fetchData() {
     return json;
 }
 
-fetchData()
-    .then((json) => {
-        returnData(json);
-        console.log('Github JSON: ', json);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+const data = await fetchData();
+returnData(data);
 
-function returnData() {}
+function returnData(data) {
+    console.log('Github JSON: ', data);
+}
