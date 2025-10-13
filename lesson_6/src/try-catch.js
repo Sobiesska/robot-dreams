@@ -5,6 +5,7 @@ function sendGitHubRequest(resource) {
         if (!response.ok) {
             throw new Error(`No resource response for ${resource}. Please try again or contact support.`);
         }
+        return response.json();
     } catch (error) {
         console.log(error.message);
         if (error.message.includes('No resource response')) {
