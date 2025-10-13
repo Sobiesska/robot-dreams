@@ -1,8 +1,8 @@
-export interface DogsBreeds {
+export interface DogBreed {
     id: string;
     type: string;
-    relationships: DogsBreedsRelationships;
-    attributes: DogsBreedsAttributes;
+    relationships: DogBreedRelationship;
+    attributes: DogBreedAttribute;
 
     getMinLifeDifference(): string;
     getMaxLifeDifference(): string;
@@ -12,31 +12,31 @@ export interface DogsBreeds {
     getMaxWeightFemaleDifference(): string;
 }
 
-export interface DogsBreedsAttributes {
+export interface DogBreedAttribute {
     name: string;
     description: string;
-    life: DogsBreedsLife;
-    male_weight: DogsBreedsMaleWeight;
-    female_weight: DogsBreedsFemaleWeight;
+    life: DogBreedLife;
+    male_weight: DogBreedMaleWeight;
+    female_weight: DogBreedFemaleWeight;
     hypoallergenic: boolean;
 }
 
-interface DogsBreedsLife {
+interface DogBreedLife {
     max: number;
     min: number;
 }
 
-interface DogsBreedsMaleWeight {
+interface DogBreedMaleWeight {
     max: number;
     min: number;
 }
 
-interface DogsBreedsFemaleWeight {
+interface DogBreedFemaleWeight {
     max: number;
     min: number;
 }
 
-export interface DogsBreedsRelationships {
+export interface DogBreedRelationship {
     group: {
         data: {
             id: string;

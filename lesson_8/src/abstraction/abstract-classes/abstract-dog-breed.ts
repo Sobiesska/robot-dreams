@@ -1,30 +1,30 @@
-import { DogsBreeds } from '../interfaces/dogs-breeds';
+import { DogBreed } from '../interfaces/dog-breed';
 
-export abstract class AbstractDogsBreeds {
-    public dogsBreeds: DogsBreeds;
+export abstract class AbstractDogBreed {
+    public dogBreed: DogBreed;
 
-    public constructor(dogsBreeds: DogsBreeds) {
-        this.dogsBreeds = dogsBreeds;
+    public constructor(dogBreed: DogBreed) {
+        this.dogBreed = dogBreed;
     }
 
     public reportLifeDifferences(): string[] {
         return [
-            this.dogsBreeds.getMaxLifeDifference(),
-            this.dogsBreeds.getMinLifeDifference()
+            this.dogBreed.getMaxLifeDifference(),
+            this.dogBreed.getMinLifeDifference()
         ];
     }
 
     public reportWeightDifferences(): string[] {
         return [
-            this.dogsBreeds.getMaxWeightMaleDifference(),
-            this.dogsBreeds.getMinWeightMaleDifference(),
-            this.dogsBreeds.getMaxWeightFemaleDifference(),
-            this.dogsBreeds.getMinWeightFemaleDifference()
+            this.dogBreed.getMaxWeightMaleDifference(),
+            this.dogBreed.getMinWeightMaleDifference(),
+            this.dogBreed.getMaxWeightFemaleDifference(),
+            this.dogBreed.getMinWeightFemaleDifference()
         ];
     }
 }
 
-export class RefinedDogsBreeds extends AbstractDogsBreeds {
+export class RefinedDogBreed extends AbstractDogBreed {
     public fullReport(): string {
         const life = this.reportLifeDifferences();
         const weight = this.reportWeightDifferences();

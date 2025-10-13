@@ -1,27 +1,27 @@
-import { DogsBreeds } from './abstraction/interfaces/dogs-breeds';
+import { DogBreed } from './abstraction/interfaces/dog-breed';
 import { HomeDog } from './implementation/home-dog';
 
-async function getDogsBreedsData(): Promise<DogsBreeds[]> {
+async function getDogBreedData(): Promise<HomeDog[]> {
     const response = await fetch('https://dogapi.dog/api/v2/breeds');
     if (!response.ok) {
         throw new Error(`Failed to fetch dog breeds: ${response.statusText}`);
     }
     const breedsData = await response.json();
-    return breedsData.data as DogsBreeds[];
+    return breedsData.data.map((row: DogBreed) => new HomeDog(row));
 }
 
-function getMaxLifeDifference(data: DogsBreeds[]): string {
+function getMaxLifeDifference(data: DogBreed[]): string {
     const averageMaxLife = data.reduce(
-        (acc: number, breed: DogsBreeds) => acc + breed.attributes.life.max,
+        (acc: number, breed: DogBreed) => acc + breed.attributes.life.max,
         0
     ) / data.length;
     return `Average max life: ${averageMaxLife}`;
 }
 
-function getMinLifeDifference(data: DogsBreeds[]): string {
+function getMinLifeDifference(data: DogBreed[]): string {
     const averageMinLife = (
         data.reduce(
-            (acc: number, breed: DogsBreeds) => acc + breed.attributes.life.min,
+            (acc: number, breed: DogBreed) => acc + breed.attributes.life.min,
             0
         ) / data.length
     );
@@ -48,18 +48,18 @@ const akitaDogData = {
         female_weight: { max: 50, min: 35 },
         hypoallergenic: false
     }
-} as DogsBreeds;
+} as DogBreed;
 
 const akitaDog = new HomeDog(akitaDogData);
 
 console.log(akitaDog.getMaxLifeDifference());
 console.log(akitaDog.getMinLifeDifference());
 
-getDogsBreedsData().then(data => {
+getDogBreedData().then(data => {
     console.log(JSON.stringify(data, null, 2));
 });
 
-getDogsBreedsData().then(data => {
+getDogBreedData().then(data => {
     console.log(getMaxLifeDifference(data));
     console.log(getMinLifeDifference(data));
 });

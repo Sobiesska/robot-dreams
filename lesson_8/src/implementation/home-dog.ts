@@ -1,12 +1,12 @@
-import { DogsBreeds, DogsBreedsAttributes, DogsBreedsRelationships } from '../abstraction/interfaces/dogs-breeds';
+import { DogBreed, DogBreedAttribute, DogBreedRelationship } from '../abstraction/interfaces/dog-breed';
 
-export class HomeDog implements DogsBreeds {
+export class HomeDog implements DogBreed {
     public id: string;
     public type: string;
-    public relationships: DogsBreedsRelationships;
-    public attributes: DogsBreedsAttributes;
+    public relationships: DogBreedRelationship;
+    public attributes: DogBreedAttribute;
 
-    public constructor(breed: DogsBreeds) {
+    public constructor(breed: DogBreed) {
         this.id = breed.id;
         this.type = breed.type;
         this.relationships = breed.relationships;
