@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe, it, beforeEach, afterEach } from 'mocha';
 import { Dog } from '../src/dog';
 
-describe('Incredible Dog\'s life', () => {
+describe('Incredible Dog\'s life unit tests', () => {
     let logs: string[];
     let originalLog: typeof console.log;
     let dog: Dog;
