@@ -1,12 +1,15 @@
 import { AnimalFactory } from './objects/animal-factory';
 import { AnimalActions } from './objects/animal-actions';
 import { IAnimal } from './abstractions/i-animal';
+import { PetPig } from './objects/pet-pig';
+import { IPlayable } from './abstractions/i-playable';
 
 const cat = AnimalFactory.createCat();
 const dog = AnimalFactory.createDog();
 const pig = AnimalFactory.createPig();
+const petPig = new PetPig();
 const actions = new AnimalActions();
-const animals: IAnimal[] = [cat, dog, pig];
+const animals: IAnimal[] = [cat, dog, pig, petPig];
 
 dog.hunt();
 dog.eat();
@@ -20,7 +23,7 @@ actions.eat(cat);
 actions.sleep(dog);
 actions.play(pig);
 
-// OCP - Open/Closed Principle
+// Polymorphism
 animals.forEach(animal => {
     animal.hunt();
     animal.eat();
@@ -28,6 +31,9 @@ animals.forEach(animal => {
     animal.play();
     animal.makeSound();
 });
+
+// OCP - Open/Closed Principle
+petPig.walk();
 
 
 // LSP - Liskov Substitution Principle
@@ -40,15 +46,14 @@ for (const animal of animals) {
 }
 
 // ISP - Interface Segregation Principle
-interface ISleeper { sleep(): void; }
-interface IPlayable { play(): void; }
+interface ISleeper extends IAnimal { sleep(): void; }
 
 const sleepers: ISleeper[] = [cat, dog, pig];
 for (const sleeper of sleepers) {
     sleeper.sleep();
 }
 
-const players: IPlayable[] = [cat, dog, pig];
+const players: IPlayable[] = [cat, dog, petPig];
 for (const player of players) {
     player.play();
 }
@@ -59,7 +64,7 @@ interface IAnimalActionRunner { runAll(animal: IAnimal): void; }
 
 class AnimalProvider implements IAnimalProvider {
     public getAnimals(): IAnimal[] {
-        return [cat, dog, pig];
+        return [cat, dog, pig, petPig];
     }
 }
 
