@@ -1,7 +1,7 @@
 import { IAnimal } from '../abstractions/i-animal';
 import { IPlayable } from '../abstractions/i-playable';
 
-export class Cat implements IAnimal, IPlayable {
+export class Cat extends Animal implements IPlayable {
     public type: string;
     public name: string;
     public age: number;
