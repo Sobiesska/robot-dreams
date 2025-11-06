@@ -1,0 +1,44 @@
+Test-case #1:
+1. Open https://booking.uz.gov.ua/
+2. Click on .SearchFormDestination>div:nth-child(1) input
+3. Add value 'Євпаторія-Курорт'
+4. Press Enter
+5. Click on .SearchFormDestination>div:nth-child(3) input
+6. Add value 'Київ-Пасажирський'
+7. Press Enter
+6. Click on .SearchFormDestination>div:nth-child(2)
+7. Click on [id="startDate"]
+8. Click on [aria-label="Наступний"]
+9. Click on [id="dp-2025-12-31"]
+10. Click on [type="submit"]
+11. Expect //h3[text()='Поки немає квитків у продажу'] is displayed
+
+Test-case #2:
+1. Open https://booking.uz.gov.ua/
+2. Click on //div[text()='Увійти']
+3. Click on [data-name="chevronDownSelect"]
+4. Click on [placeholder="Пошук країни"]
+5. Add value 'Україна'
+6. Click on [name="phone"]
+7. Add a valid phone number (e.g. 631234567)
+8. Click on //button[text()='Підтвердити'] (a code within sms should be received)
+9. Add 1st number of code to .FormInput:nth-child(1) input
+10. Add 2nd number of code to .FormInput:nth-child(2) input
+11. Add 3rd number of code to .FormInput:nth-child(3) input
+12. Add 4th number of code to .FormInput:nth-child(4) input
+13. Click on .Dropdown
+14. Expect [role="menu"] is displayed
+
+Test-case #3:
+1. Open https://booking.uz.gov.ua/
+2. Click on //div[text()='Увійти']
+3. Click on //*[@id="phone-number"]
+4. Add a valid phone number (e.g. 631234567)
+5. Click on //*[@id="LoginForm"]/button (a code within sms should be received)
+6. Add 1st number of code to //*[@id="CodeFormInputId_0"]
+7. Add 2nd number of code to //*[@id="CodeFormInputId_1"]
+8. Add 3rd number of code to //*[@id="CodeFormInputId_2"]
+9. Add 4th number of code to //*[@id="CodeFormInputId_3"]
+10. Click on //*[@aria-haspopup="menu"]
+11. Click on (//*[@role="menuitem"]/button)[1]
+12. Expect //*[@id="__nuxt"]/div[1]/div/div/div/div/nav/ul/li[1]/button is displayed
